@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
+	<title>Aube RPG</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Turret+Road:wght@200;300;400;500;700;800&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=arrow_back,content_copy" />
+	<style>
+		body {
+			padding: 0;
+			margin: 0;
+			height: 100vh;
+			background-image: url("./bg.png");
+			background-position: right center;
+			background-repeat: no-repeat;
+			* {
+				font-family: "Turret Road";
+				font-weight: 500;
+			}
+			b {
+				font-weight: 800;
+			}
+			button {
+				color: blue;
+				background: transparent;
+				border: none;
+			}
+			.material-symbols-outlined {
+				font-size: 1em;
+			}
+			a {
+				color: blue;
+			}
+		}
+		
+		header {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			padding: .5em 4em;
+			background: #3f87a6; 
+			transition: background .5s;
+			img {
+				max-height: 2em;
+			}
+			a {
+				color: black;
+				padding: 0;
+			}
+		}
+		header:hover {
+			background: #6EE9B8;
+		}
+		
+		.main {
+			margin: 1.8em;
+			padding: .2em .4em;
+			width: fit-content;
+			background-color: rgba(180, 170, 190, .4);
+			border-radius: 1.5em;
+			b {
+				font-weight: 800;
+				a {
+					font-weight: 800;
+				}
+			}
+		}
+		
+		.ontop {
+			overflow: scroll;
+			position: absolute;
+			left: 25vw;
+			top: 25vh;
+			height: calc(50vh - 4em);
+			width: calc(50vw - 4em);
+			padding: 2em;
+			background-color: rgba(230, 230, 230, .9);
+			border-radius: 1em;
+			.contact-1::before {
+				display:inline-block;
+				height: 1em;
+				width: 1em;
+				background-image: url("data:image/png;base64,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");
+				background-size: cover;
+				content: " ";
+			}
+			.undo {
+				font-size: 1.5em;
+			}
+		}
+	</style>
+	<script>
+		function copy(v) {
+			if (v == 0) {
+				navigator.clipboard.writeText('@futuray');
+			} else if (v == 1) {
+				navigator.clipboard.writeText('auberpg.minetest.land');
+			} else if (v == 2) {
+				navigator.clipboard.writeText('3000');
+			} else {
+				return;
+			}
+			alert("Copied!");
+		}
+		function contact() {
+			let contact = document.querySelector(".contact");
+			if (contact.style.visibility == "hidden") {
+				contact.style.visibility = "visible";
+			} else {
+				contact.style.visibility = "hidden";
+			}
+		}
+		function about() {
+			let contact = document.querySelector(".about");
+			if (contact.style.visibility == "hidden") {
+				contact.style.visibility = "visible";
+			} else {
+				contact.style.visibility = "hidden";
+			}
+		}
+		function dw() {
+			let download = document.querySelector(".download");
+			if (download.style.visibility == "hidden") {
+				download.style.visibility = "visible";
+			} else {
+				download.style.visibility = "hidden";
+			}
+		}
+	</script>
+</head>
+<body>
+	<header>
+		<a href="/"><img src="./logo.png" alt="Aube RPG"></a>
+		<a href="#" onclick="dw()">Download</a>
+		<a href="#" onclick="contact()">Contact me</a>
+		<a href="#" onclick="about()" alt="impressum">About</a>
+	</header>
+	<div class="main">
+		<h1>Aube RPG</h1>
+		<p>Aube is a <b>free Christmas-themed MMORPG <a href="https://luanti.org/">Luanti</a> server.</b> <a href="#" onclick="dw()">Install Luanti</a> and connect to Aube RPG to play!</p>
+		<p>I worked on this since the 20<sup>th</sup> of November on my whole free-time.</p>
+		<p>You want your own Luanti server to boost your community? <b><a href="#" onclick="contact()">Contact me!</a></b></p>
+	</div>
+	<div class="ontop contact" style="visibility: hidden;">
+		<a href="#" onclick="contact()" class="undo"><span class="material-symbols-outlined">arrow_back</span></a>
+		<p class="contact-1"> My discord pseudo : <b>@futuray</b><button onclick="copy(0)"><span class="material-symbols-outlined">content_copy</span></button></p>
+	</div>
+	<div class="ontop about" style="visibility: hidden;">
+		<a href="#" onclick="about()" class="undo"><span class="material-symbols-outlined">arrow_back</span></a>
+		<ul>
+			<li>Author : <b>Futuray</b></li>
+			<li>Email : <b>sitr.nicolas@gmail.com</b></li>
+			<li>Location : <b>84 rue Charles de Gaulle, 68370 Orbey, France</b></li>
+			<li><b><a href="https://luanti.org">Luanti</a></b> is a <b>free software</b> distrubuted under <a href="https://github.com/minetest/minetest/blob/master/LICENSE.txt">LGPL license</a>.
+			<li>This webpage use <b>Google fonts under <a href="https://fonts.google.com/specimen/Turret+Road/license">Open Font License</a></b> but do not use Cookies or Tracking systems</li>
+		</ul>
+	</div>
+	<div class="ontop download" style="visibility: hidden;">
+		<a href="#" onclick="dw()" class="undo"><span class="material-symbols-outlined">arrow_back</span></a>
+		<ol>
+			<li><b>Download</b> Luanti on <b><a href="https://luanti.org/downloads/">https://luanti.org/downloads/</a></b></li>
+			<li><b>Install</b> and run the game engine</li>
+			<li>Go to the <b>Join Game</b> tab</li>
+			<li>Type <u><em>auberpg.minetest.land</em></u><button onclick="copy(1)"><span class="material-symbols-outlined">content_copy</span></button>in the address field</li>
+			<li>Check the port is <u><em>3000</em></u><button onclick="copy(1)"><span class="material-symbols-outlined">content_copy</span></button></li>
+			<li>Click <b>Create Acount</b>, choose a name and a password</li>
+			<li>Now, you can <b>connect and play!</b></li>
+		</ol>
+	</div>
+</body>
+</html>
